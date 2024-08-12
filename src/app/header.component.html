@@ -1,0 +1,8 @@
+<body>
+<header>
+    <h1>You are in the Header Component</h1>
+</header>
+<h1 *ngIf="newname">This is from Child to Parent{{newname}}</h1>
+<app-header-child [data]="item" (changeHeaderEvent)="updateHeader($event)" (changeMyName)="updateMyName($event)"
+></app-header-child>
+</body>

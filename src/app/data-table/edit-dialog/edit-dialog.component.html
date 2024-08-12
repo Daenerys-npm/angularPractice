@@ -1,0 +1,34 @@
+<p>Edit-dialog works!</p>
+<div mat-dialog-container>
+<h1 mat-dialog-title >Edit Item</h1>
+
+<div mat-dialog-content>
+    <form [formGroup]="editDialogForm">
+    
+   
+            <label *ngIf="!item" >id</label>
+            <input type="number" name="id" formControlName="id" *ngIf="!item" required>
+            <br>
+    
+
+            <label>Name</label>
+            <input type="text" name="editName" formControlName="name">
+            <span *ngIf="name && name.invalid && name.touched" style="color: red;">Invalid Name Input</span>
+            <br>
+
+            <label>Amount</label>
+            <input type="number" name="amount" formControlName="amount">
+            <span *ngIf="amount && amount.invalid && amount.touched" style="color: red;">Invalid Name Input</span>
+            <br>
+
+        <div mat-dialog-actions>
+            <button mat-button (click)="onEditCancel()">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="editDialogForm.invalid" (click)="onEditSubmit()">
+              {{ item ? 'Update' : 'Add' }}
+            </button>
+          </div>
+
+    </form>
+
+</div>
+</div>

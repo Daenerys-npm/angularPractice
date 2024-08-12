@@ -1,0 +1,40 @@
+.newForm {
+    background-color:rgb(215, 205, 205);
+    height: auto;
+    padding: 30px;
+    width: auto;
+    margin: 0%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    position: absolute;
+}
+
+.newForm h1 {
+    text-align: center;
+}
+
+.formParent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+
+.d1 {
+    background-color: rgb(240, 210, 199);
+    height: 400px;
+    /* width: 20%; */
+    border: 15px;
+    border-style: dotted;
+    border-color: black;
+    flex-grow: 1;
+
+
+}
+
+.buttonHolder {
+
+    text-align: center;
+}

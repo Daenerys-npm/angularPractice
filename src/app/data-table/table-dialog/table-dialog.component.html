@@ -1,0 +1,31 @@
+<p>table-dialog works!</p>
+<h1 mat-dialog-title >Add Item</h1>
+
+<div mat-dialog-content>
+    <form [formGroup]="DialogForm">
+    
+            <label>id</label>
+            <input type="number" name="id" formControlName="id">
+            <span *ngIf="id && id.invalid && id.touched" style="color: red;">Invalid Id Input</span>
+            <br>
+     
+            <label>Name</label>
+            <input type="text" name="name" formControlName="name">
+            <span *ngIf="name && name.invalid && name.touched" style="color: red;">Invalid Name Input</span>
+            <br>
+
+            <label>Amount</label>
+            <input type="number" name="amount" formControlName="amount">
+            <span *ngIf="amount && amount.invalid && amount.touched" style="color: red;">Invalid Name Input</span>
+            <br>
+
+        <div mat-dialog-actions>
+            <button mat-button (click)="onCancel()">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" [disabled]="DialogForm.invalid" (click)="onSubmit()">
+              Add
+            </button>
+          </div>
+
+    </form>
+
+</div>

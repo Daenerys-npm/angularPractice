@@ -1,0 +1,51 @@
+<div class="formParent">
+<!-- <form class="newForm" (ngSubmit)="printfunc()" [formGroup]="LoginForm" >
+ <h1>User</h1>
+    <br>
+<label>UserName  </label>    
+<input type="text" name="UserName" formControlName="username">
+<br>
+<span *ngIf="username && username.invalid && username.touched" style="color: red;">Invalid UserName Input</span>
+<br>
+<label>Password   </label>
+ <input type="password" name="password" formControlName="password">
+<br>
+<span style="color: red;" *ngIf="password && password.invalid && password.touched">Invalid Password</span>
+<br>
+<label>Age</label>
+<input type="number" name="age" formControlName="age"/>
+<br>
+<span style="color: red;" *ngIf="age && age.invalid && age.touched">Invalid Password</span>
+<br>
+
+<button [disabled]="LoginForm.invalid">Click Me</button>
+
+</form> -->
+
+<form class="newForm" (ngSubmit)="printfunc()" [formGroup]="LoginForm">
+    <table>
+        <tr>
+            <td><label for="UserName">UserName </label> </td>
+            <td><input type="text" name="UserName" formControlName="username"></td>
+        </tr>
+        <span *ngIf="username && username.invalid && username.touched" style="color: red;">Invalid UserName Input</span>
+        <tr>
+            <td><label for="password">Password </label></td>
+            <td><input type="password" name="password" formControlName="password"></td>
+        </tr>
+        <span style="color: red;" *ngIf="password && password.invalid && password.touched">Invalid Password</span>
+        <tr>
+            <td><label for="age">Age</label></td>
+            <td><input type="number" name="age" formControlName="age" /></td>
+        </tr>
+        <span style="color: red;" *ngIf="age && age.invalid && age.touched">Invalid Password</span>
+    </table>
+    <div class="buttonHolder"><button [disabled]="LoginForm.invalid" type="submit">Click Me</button></div>
+
+</form>
+
+<!-- <form class="newForm"></form> -->
+<!-- <div class="d1">div1</div>
+<div class="d1">div2</div>
+<div class="d1">div3</div> -->
+</div>

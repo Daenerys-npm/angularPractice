@@ -1,0 +1,60 @@
+<div class="mat-elevation-z2">
+  <button mat-button-raised (click)="addNewEntry()">Add Item</button>
+  <input type="search" [formControl]="searchControl">
+  <table mat-table class="MyTable" matSort aria-label="Elements">
+
+    
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <!-- <mat-form-field>
+        <mat-label>Input</mat-label>
+        <input matInput>
+      </mat-form-field> -->
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container> 
+
+
+     <!-- Amount Column -->
+     <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Amount</th>
+      <td mat-cell *matCellDef="let row">{{row.amount}}
+      </td>
+    </ng-container>
+
+    
+     <!-- Delete button Column -->
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button-raised color="warn" (click)="removeItem(element)">Delete</button>
+      </td>
+    </ng-container>
+
+     <!-- Edit button Column -->
+     <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Edit </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-button-raised color="warn" (click)="editOldEntry(element)">Edit</button>
+        <!-- (click)="editItem(element)" -->
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator #paginator
+      [length]="dataSource.data.length"
+      [pageIndex]="0"
+      [pageSize]="10"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page">
+  </mat-paginator>
+</div>
