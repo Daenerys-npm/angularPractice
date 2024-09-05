@@ -1,0 +1,44 @@
+.formParent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.formChild {
+
+    background-color:rgb(215, 205, 205);
+    height: auto;
+    padding: 30px;
+    width: auto;
+    margin: 0%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    top: 50%;
+    position: absolute;  
+
+}
+
+.buttonHolder {
+
+    text-align: center;
+}
+h4{
+    color: red;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border: 10px solid #42A948; /* green */
+  }
+
+  .ng-invalid:not(form).ng-touched  {
+    border: 2px solid #a94442; /* red */
+  }
+
+  .errorInput {
+    border: 2px solid pink;
+  }
+
+  .special {
+    background-color:palevioletred;
+  }

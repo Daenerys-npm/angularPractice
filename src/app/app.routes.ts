@@ -3,6 +3,11 @@ import { UserFormComponent } from './userForm.component';
 import { HeaderComponent } from './header.component';
 
 import { DataTableComponent } from './data-table/data-table.component';
+import { RformComponent } from './rform/rform.component';
+import { SimpleTableComponent } from './simple-table/simple-table.component';
+import { BuiltInDirComponent } from './built-in-dir/built-in-dir.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import { HttpCComponent } from './http-c/http-c.component';
 
 export const routes: Routes = [
   { path: ' /', component: HeaderComponent },
@@ -21,5 +26,25 @@ export const routes: Routes = [
   {
     path: 'data-table',
     component: DataTableComponent,
+  },
+  {
+    path: 'rform',
+    component: RformComponent,
+  },
+  {
+    path: 'simpleTable',
+    component: SimpleTableComponent,
+  },
+  {
+    path: 'buildInDir',
+    component: BuiltInDirComponent,
+  },
+  {
+    path: 'rxjsComp',
+    component: RxjsComponent,
+  },
+  {
+    path: 'httpClient',
+    component: HttpCComponent,
   },
 ];

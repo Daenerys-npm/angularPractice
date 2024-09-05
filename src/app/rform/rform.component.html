@@ -1,0 +1,53 @@
+
+<div class="formParent"></div>
+<form  class="formChild" [formGroup]="newForm" (ngSubmit)="onSubmitHandler()">
+    <table>
+        <tr>
+
+  <td>  <label >User Name</label></td>
+  <td> <input type="text" formControlName="uName" appForbiddenName="bob"></td> 
+</tr>
+<span *ngIf="uName && uName.invalid && uName.touched"><small>Please Enter a valid UserName</small></span>
+<span></span>
+<tr>
+   <td> <label>Birth Date</label></td>
+ <td>  <input type="date" formControlName="uDate" min="2024-01-01" max="today"></td> 
+</tr>
+<span *ngIf="uDate && uDate.invalid && uDate.touched "><h4>Please Enter a valid Date</h4></span>
+<tr>
+  <td> <label>Amount</label></td> 
+    <td><input type="number" formControlName="uAmount"></td>
+</tr>
+<span *ngIf="uAmount && uAmount.invalid && uAmount.touched">Please Enter a valid Amount</span>
+    <tr>
+      <td><label>Age Group</label></td>
+      <td>
+     <input type="radio" formControlName="uAge" value="20-40">20-40
+     <input type="radio" formControlName="uAge" value="40-60">40-60 
+     <input type="radio" formControlName="uAge" value="Above 60">60 Above
+    
+  </td>
+    </tr>
+
+    <tr>
+      <td><label>Email</label></td>
+      <td><input type="email" formControlName="uEmail" [class.errorInput]="uEmail?.invalid && uEmail?.touched"></td>
+    </tr>
+<span *ngIf="uEmail &&  uEmail.invalid && uEmail.touched">Please enter Valid Email </span>
+
+<tr>
+  <td><label>Select State</label></td>
+  <td><select name="states" formControlName="uState">
+<option value="Maharashtra">Maharashtra</option>
+<option value="Gujarat">Gujarat</option>
+<option value="Karnataka">Karnataka</option>
+  </select></td>
+</tr>
+</table>
+<div class="buttonHolder"><button  type="submit" >Submit</button></div>
+<!-- [disabled]="newForm.invalid" -->
+</form>
+<p>{{uName?.value}}</p>
+<p>This is a value managed by signal {{uSignal()}}</p>
+<p>{{displayName()}}</p>
+

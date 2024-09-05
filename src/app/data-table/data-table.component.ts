@@ -1,7 +1,8 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
 import { MatTable } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { DataTableDataSource, DataTableItem } from './data-table-datasource';
 import { TableDialogComponent } from './table-dialog/table-dialog.component';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -20,6 +21,7 @@ export class DataTableComponent implements AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatTable) table!: MatTable<DataTableItem>;
   dataSource = new DataTableDataSource();
+
   // private dialogRef: MatDialogRef<TableDialogComponent> | null = null;
 
   private editDialogRef: MatDialogRef<EditDialogComponent> | null = null;
@@ -34,10 +36,27 @@ export class DataTableComponent implements AfterViewInit {
   }
 
   ngOnInit(): void {
+    // this.dataSource.filterPredicate = function (
+    //   dataNew: DataTableItem,
+    //   filter: string
+    // ) {
+    //   const dataStr = dataNew.name.toLowerCase();
+    //   return dataStr.indexOf(filter) != -1;
+    // };
+
     this.searchControl.valueChanges.subscribe((searchText) => {
       this.searchFunction(searchText);
+      //this.applyFilter(searchText);
     });
+
+    //
+    //Using Filter Predicate-
   }
+
+  // applyFilter(filterValue: string) {
+  //   filterValue = filterValue.trim().toLowerCase(); // Remove whitespace and convert to lowercase
+  //   this.dataSource.filter = filterValue;
+  // }
 
   searchFunction(filterVal: string): void {
     filterVal = filterVal.trim().toLowerCase();
@@ -49,8 +68,10 @@ export class DataTableComponent implements AfterViewInit {
     } else {
       console.log(this.filteredItems);
       this.dataSource.data = this.Unfiltered;
-      this.filteredItems = this.dataSource.data.filter((i) =>
-        i.name.toLowerCase().includes(filterVal)
+      this.filteredItems = this.dataSource.data.filter(
+        (i) =>
+          i.name.toLowerCase().includes(filterVal) ||
+          i.id.toString().toLowerCase().includes(filterVal)
       );
 
       console.log(this.filteredItems);

@@ -3,6 +3,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { MatTableDataSource } from '@angular/material/table';
 
 import { DataTableComponent } from './data-table.component';
 
@@ -18,7 +19,8 @@ describe('DataTableComponent', () => {
         MatPaginatorModule,
         MatSortModule,
         MatTableModule,
-      ]
+        MatTableDataSource,
+      ],
     }).compileComponents();
   }));
 

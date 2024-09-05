@@ -1,0 +1,27 @@
+<p >built-in-dir works!</p>
+<div [class]="abc ? 'special' : ''">This Changes with NgClass</div>
+
+<div [ngClass]="abc ? 'special' : ''">This is div 2</div>
+<div [ngClass]="CurrentClasses">This is managed by NgClass using method</div>
+
+<div [ngStyle]="CurrentStyles">This Div is styled by NgStyle</div>
+
+<label>This is managed by NgModel</label>
+<input type="text" [(ngModel)]="value1" (ngModelChange)="setUpperCase($event)">
+<p>{{value1}}</p>
+
+<div *ngFor="let item of data">{{item.name}}</div>
+
+<ul *ngFor="let item of data">{{item.name}}</ul>
+
+<div *ngIf="value1 == ''">Show this if value1 = ''</div>
+
+<div *ngIfThen="value1 != ''">Show this if value1 != ''</div>
+
+<div [ngSwitch]="id">
+    <div *ngSwitchCase="1" [id]="1">Id 1</div>
+    <div *ngSwitchCase="2" [id]="2">Id 2</div>
+    <div *ngSwitchDefault="3" [id]="3">Id 3</div>
+</div>
+
+

@@ -1,8 +1,12 @@
 <p>header-child works!</p>
 <h1>This is data from Parent: {{data}}</h1>
+<h2>This is data from Parent: {{data3}}</h2>
 <input #abc>
 <button (click)="changeHeaderEvent.emit(abc.value)">Update data</button>
 
 <input #mn>
 <button (click)="changeMyName.emit(mn.value)">Change My Name</button>
  
+<Label>Enter full Name</Label>
+<input type="text" #fName >
+<button (click)="enterFullName.emit(fName.value) ">Click Me</button>

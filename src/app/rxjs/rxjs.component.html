@@ -1,0 +1,10 @@
+<p>rxjs works!</p>
+<form [formGroup]="formH" (ngSubmit)="onSubmit()">
+    <Label>Search</Label>
+    <input type="search" formControlName="searchControl">
+    <button type="submit">Submit</button>
+</form>
+
+<p *ngIf="result">result is:{{result}}</p>
+
+<p *ngFor="let item of mergeMapResult">{{item}}</p>

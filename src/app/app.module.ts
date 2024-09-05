@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
 import { UserFormComponent } from './userForm.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass, NgStyle } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -15,9 +15,29 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { RformComponent } from './rform/rform.component';
+import { SimpleTableComponent } from './simple-table/simple-table.component';
+import { ForbiddenValidatorDirective } from './rform/fName.directive';
+import { BuiltInDirComponent } from './built-in-dir/built-in-dir.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import { HttpCComponent } from './http-c/http-c.component';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 
 @NgModule({
-  declarations: [AppComponent, UserFormComponent, DataTableComponent],
+  declarations: [
+    AppComponent,
+    UserFormComponent,
+    DataTableComponent,
+    SimpleTableComponent,
+    ForbiddenValidatorDirective,
+    RformComponent,
+    BuiltInDirComponent,
+    RxjsComponent,
+    HttpCComponent,
+  ],
   bootstrap: [AppComponent], //root component
   imports: [
     BrowserModule,
@@ -32,6 +52,9 @@ import { MatButtonModule } from '@angular/material/button';
     MatFormFieldModule,
     MatDialogModule,
     MatButtonModule,
+    NgClass,
+    NgStyle,
   ],
+  providers: [provideHttpClient(withInterceptorsFromDi())],
 })
 export class AppModule {}
